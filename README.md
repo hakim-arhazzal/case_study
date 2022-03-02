@@ -14,7 +14,7 @@ PXL is headquartered in Zurich, Switzerland 🇨🇭, with offices in Germany :d
 
 ## Case Study Intro/How To
 
-The Case Study has been split in three parts. In the `Analysis` section please use valid [Markdown](https://en.wikipedia.org/wiki/Markdown) to give your answers. The robots will be pleased. Please bear in mind that there is no perfect/single solution, the point of the Case Study is to determine analytical skills of a candidate 🤓 Feel free to make your own fork, create a new file called `analysis.md` and write your findings.
+The Case Study has been split in three parts. In the `Analysis` section please use valid [Markdown](https://en.wikipedia.org/wiki/Markdown) to give your answers. The robots will be pleased. Please bear in mind that there is no perfect/single solution, the point of the Case Study is to determine analytical skills of a candidate 🤓
 
 ### 1) Dockerfile
 
@@ -31,5 +31,5 @@ Please take a look at `.github` folder and try to analyze the files there. What 
 ## Analysis
 
 ```txt
-Please fill with your opinions, hopes, fears, and suggestions.
+Please fill with your opinions, hopes, fears, and suggestions. Feel free to make your own fork, create a new file called `analysis.md` and write your findings.
 ```
