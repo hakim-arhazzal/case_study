@@ -10,11 +10,11 @@ PXL Vision provides leading solutions for the automation and enhancement of onli
 
 Our team has a proven track record in developing and deploying mass-market products that are used by more than a million people worldwide.
 
-PXL is headquartered in Zurich, Switzerland 🇨🇭, with R&D centers in Novi Sad, Serbia 🇷🇸, and Yerevan, Armenia 🇦🇲.
+PXL is headquartered in Zurich, Switzerland 🇨🇭, with offices in Germany :de: and R&D centers in Novi Sad, Serbia 🇷🇸, and Armenia 🇦🇲.
 
-## Case Study Intro
+## Case Study Intro/How To
 
-The Case Study has been split in three parts. In the `Analysis` section please use valid [Markdown](https://en.wikipedia.org/wiki/Markdown) to give your answers. The robots will be pleased. Please bear in mind that there is no perfect/single solution, the point of the Case Study is to determine analytical skills of a candidate 🤓
+The Case Study has been split in three parts. In the `Analysis` section please use valid [Markdown](https://en.wikipedia.org/wiki/Markdown) to give your answers. The robots will be pleased. Please bear in mind that there is no perfect/single solution, the point of the Case Study is to determine analytical skills of a candidate 🤓 Feel free to make your own fork, create a new file called `analysis.md` and write your findings.
 
 ### 1) Dockerfile
 
