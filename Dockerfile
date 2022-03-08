@@ -1,7 +1,15 @@
-FROM python:3
+# Python 3.x  doesn't support all the function in the py file
+FROM python:2-slim
 
-COPY magic_ball.py /
+RUN addgroup --system app && adduser --system --group app 
 
-RUN pip install flask
+USER app
 
-CMD [ "python", "./magic_ball.py" ]
+# Create app directory 
+WORKDIR /usr/src/app
+
+COPY magic_ball.py .
+
+ENTRYPOINT [ "python" ]
+
+CMD [ "./magic_ball.py" ]
