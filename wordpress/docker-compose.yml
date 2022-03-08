@@ -36,6 +36,7 @@ services:
     restart: unless-stopped
     ports:
       - "8000:80"
+      - "443:443"
     volumes:
       - ./nginx-conf:/etc/nginx/conf.d
       - wordpress:/var/www/html
@@ -44,6 +45,3 @@ services:
 volumes:
   db_data:
   wordpress:
-
-
-   
