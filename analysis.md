@@ -55,4 +55,15 @@ In this file, we will add a server block with directives for our server name and
 
 #### 2.2) Environment Variables
 
+We can set the sensitive values in an **.env** file and restrict its circulation. This will prevent these values from copying over to our project repositories and being exposed publicly.
 
+In the main project directory, ~/wordpress, we' ll open a file called .env
+
+The confidential values that we will set in this file include a password for our MySQL root user, and a username and password that WordPress will use to access the database.
+
+```bash
+MYSQL_ROOT_PASSWORD=somewordpress
+MYSQL_USER=wordpress
+MYSQL_PASSWORD=wordpress
+```
+Giving the fact that our .env file contains sensitive information, you will want to ensure that it is included in your project’s .gitignore and .dockerignore files, which tell Git and Docker what files not to copy to your Git repositories and Docker images, respectively.
