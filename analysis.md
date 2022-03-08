@@ -85,3 +85,11 @@ For the **Nginx webserver** service, we've introduced the following configuratio
   - wordpress:/var/www/html: This will mount our WordPress application code to the /var/www/html directory, the directory we set as the root in our Nginx server block.
 
   - ./nginx-conf:/etc/nginx/conf.d: This will bind mount the Nginx configuration directory on the host to the relevant directory on the container, ensuring that any changes we make to files on the host will be reflected in the container.
+
+#### 2.4) WebServer Configuration (SSL Certificates and Credentials)
+
+Enabling SSL in our Nginx configuration will involve adding an HTTP redirect to HTTPS, specifying our SSL certificate and key locations, and adding security parameters and headers. So we'll have to make adjustments to our nginx.config file. Here a breakdown of changes below.
+
+The HTTP server block in the conf file includes a rewrite directive that directs HTTP requests to the root directory to HTTPS.
+
+The HTTPS server block enables ssl and http2. This block also includes our SSL certificate and key locations. Additionally, we’ve included some security headers that will enable us to get A ratings on things like the SSL Labs and Security Headers server test sites. These headers include X-Frame-Options, X-Content-Type-Options, Referrer Policy, Content-Security-Policy, and X-XSS-Protection.
