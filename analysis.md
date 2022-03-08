@@ -31,6 +31,8 @@ CMD [ "./magic_ball.py" ]
 ```
 ### 2) WordPress with docker-compose
 
+#### 2.1) Nginx Configuration
+
 In order to add the Nginx reverse proxy,first we need to make a directory for the configuration file:
 
 ```bash
@@ -50,3 +52,7 @@ In this file, we will add a server block with directives for our server name and
 - **location ~ /\.ht:** This block will handle .htaccess files since Nginx won’t serve them. The deny_all directive ensures that .htaccess files will never be served to users.
 - **location = /favicon.ico**, **location = /robots.txt**: These blocks ensure that requests to /favicon.ico and /robots.txt will not be logged.
 - ***location ~* \.(css|gif|ico|jpeg|jpg|js|png)**: This block turns off logging for static asset requests and ensures that these assets are highly cacheable, as they are typically expensive to serve.
+
+#### 2.2) Environment Variables
+
+
