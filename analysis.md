@@ -67,3 +67,21 @@ MYSQL_USER=wordpress
 MYSQL_PASSWORD=wordpress
 ```
 Giving the fact that our .env file contains sensitive information, you will want to ensure that it is included in your project’s .gitignore and .dockerignore files, which tell Git and Docker what files not to copy to your Git repositories and Docker images, respectively.
+
+#### 2.3) Configure the Nginx revered proxy with Docker Compose
+
+In the docker-compose file, we've introduced some changes to the **db** and **wordpress** services 
+
+- **container_name:** This specifies a name for the container.
+- **restart:** We have set the container to restart unless it is stopped manually. for troubleshooting reasons.
+- **env_file:** This option tells Compose that we would like to add environment variables from a file called .env, located in our build context. In this case, the build context is our current directory.
+
+For the wordpress service, we are using the **5.1.1-fpm-alpine WordPress** image. Using this image ensures that our application will have the php-fpm processor that Nginx requires to handle PHP processing. 
+
+For the **Nginx webserver** service, we've introduced the following configurations
+
+- **ports:** This exposes port 80 to enable the configuration options we defined in our nginx.conf file.
+- **volumes:** Here, we are defining a combination of named volumes and bind mounts:
+  - wordpress:/var/www/html: This will mount our WordPress application code to the /var/www/html directory, the directory we set as the root in our Nginx server block.
+
+  - ./nginx-conf:/etc/nginx/conf.d: This will bind mount the Nginx configuration directory on the host to the relevant directory on the container, ensuring that any changes we make to files on the host will be reflected in the container.
