@@ -93,3 +93,33 @@ Enabling SSL in our Nginx configuration will involve adding an HTTP redirect to 
 The HTTP server block in the conf file includes a rewrite directive that directs HTTP requests to the root directory to HTTPS.
 
 The HTTPS server block enables ssl and http2. This block also includes our SSL certificate and key locations. Additionally, we’ve included some security headers that will enable us to get A ratings on things like the SSL Labs and Security Headers server test sites. These headers include X-Frame-Options, X-Content-Type-Options, Referrer Policy, Content-Security-Policy, and X-XSS-Protection.
+
+### 3) Github Actions
+
+#### 3.1) Pull_request_template:
+
+This file is basically a PR template to help regulate and standardize the pull request process across the organization in terms of quality assurance. It is quite useful to make sure to follow a standard process for every pull request and to have a to-do list for the author to check before requesting a review.
+
+#### 3.2) cicd.yml:
+
+The file is basically a workflow that build every pull request to our repository.
+
+In more details, It's a workflow that can be triggered when a pull request occurs to the repository on one of the following branches: **development**, **main**.
+
+The workflow contains one job (**build docker images**) that  will run inside its own virtual machine runner on **Ubuntu** operating system.
+
+Our job contains six specific steps that will run in order, all on the same runner. 
+
+1) **Checkout:** This action checks-out your repository under $GITHUB_WORKSPACE, so the workflow can access it.
+
+2) **Docker meta:** this action to extract metadata (tags, labels) for Docker
+
+3) **Set up QEMU** and **Set up Docker Build** are both a combination to set up Docker Buildx which is a Docker CLI plugin for extended build capabilities.
+
+4) **Login to GitHub Container Registry**: GitHub Action to login against a Docker registry.
+
+5) **Build and push MLFlow image**: GitHub Action to build and push Docker images with Buildx (in our case the we've passed through the Dockerfile for mlflow app)
+
+**Improvement Deck:**
+
+We can have multiple workflows in our repository, each of which can perform a different set of steps. For example, we can have one workflow to build and test pull requests, another workflow to deploy the application every time a release is created, and still another workflow that adds a label every time someone opens a new issue. Making sure we're all the time providing a loosely coupled environment for the different teams across the organization, minimizing dependencies!
